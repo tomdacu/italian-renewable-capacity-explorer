@@ -155,7 +155,7 @@ build outputs (`dist/`, `static/`, `dist-exe/`); never commit credentials.
 ## Author and contacts
 
 Tommaso D'Acunzio — [GitHub](https://github.com/tomdacu) —
-[LinkedIn](https://www.linkedin.com/in/tommaso-d-acunzio-344876185/) —
+[LinkedIn](https://www.linkedin.com/in/tommaso-dacunzio/) —
 <tommaso@dacunzio.it>
 
 If you use this project, or you are interested in a collaboration, write to me.
