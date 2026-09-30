@@ -1,7 +1,10 @@
 ![Italian Renewable Capacity Explorer banner](docs/readme-banner.png)
 
-**Explore Italy's renewable installed capacity — solar, wind, hydro, bioenergy and
-geothermal — region by region, with charts, tables and CSV exports.**
+[![CI](https://github.com/tomdacu/italian-renewable-capacity-explorer/actions/workflows/ci.yml/badge.svg)](https://github.com/tomdacu/italian-renewable-capacity-explorer/actions/workflows/ci.yml)
+![licence: MIT](https://img.shields.io/badge/licence-MIT-blue)
+
+**Explore Italy's renewable installed capacity â€” solar, wind, hydro, bioenergy and
+geothermal â€” region by region, with charts, tables and CSV exports.**
 Thermoelectric capacity and the national totals are included for comparison. The
 data comes from the [Terna Developer API](https://developer.terna.it) and is
 cached in a local SQLite database: after the first sync the app works offline,
@@ -11,13 +14,13 @@ It runs as a small local server that also serves its own interface: open it in a
 browser, or install it as an app with its own window and Start-menu entry.
 
 > Independent project, **not** affiliated with or endorsed by Terna S.p.A. The
-> data is © Terna S.p.A. and is fetched with each user's own free credentials.
+> data is Â© Terna S.p.A. and is fetched with each user's own free credentials.
 
 ![Dashboard](docs/screenshot-dashboard.png)
 
 ## Features
 
-- **Guided setup** for Terna Developer credentials — the secret is encrypted with
+- **Guided setup** for Terna Developer credentials â€” the secret is encrypted with
   Windows DPAPI (Keychain on macOS, `secret-tool` on Linux) and never leaves the
   machine.
 - **One-click sync** of any year range: every dataset, source and capacity type,
@@ -29,7 +32,7 @@ browser, or install it as an app with its own window and Start-menu entry.
 
 ## Get started
 
-The package is not on npm yet, so the app runs from a checkout — with
+The package is not on npm yet, so the app runs from a checkout â€” with
 [Bun](https://bun.sh) installed:
 
 ```bash
@@ -41,11 +44,11 @@ bun run serve          # local server + browser window on 127.0.0.1:8731
 ```
 
 The app serves itself on `http://127.0.0.1:8731` and opens a browser window. Use
-your browser's *Install app* to get a standalone window with its own icon — the
+your browser's *Install app* to get a standalone window with its own icon â€” the
 installed app is bound to the **origin** it was installed from, port included. If
 `8731` is busy the server starts on a free port instead and says so in
 `backend.log`: the app then points at the old origin and has to be reinstalled
-from the new one, which is the URL **Settings → Install** shows.
+from the new one, which is the URL **Settings â†’ Install** shows.
 
 Once the package is published to npm, `bunx italian-renewable-capacity-explorer`
 will be the one-line equivalent of that clone.
@@ -54,8 +57,8 @@ Then, inside the app:
 
 1. create a free application on [developer.terna.it](https://developer.terna.it)
    and paste Client ID and secret in **Credentials**;
-2. open **Data sync**, press *Download everything* — the range defaults to
-   2000 → the latest year already in your cache, one request per dataset and
+2. open **Data sync**, press *Download everything* â€” the range defaults to
+   2000 â†’ the latest year already in your cache, one request per dataset and
    year, paced at ~1/second to stay inside the API limits. Any year the API
    accepts can be typed in by hand, including one Terna has not published yet:
    those steps come back empty and are reported as such, they are not failures;
@@ -66,8 +69,8 @@ Then, inside the app:
 ### Development
 
 `bun run dev` starts the Vite dev server with hot reload (run `bun run serve` too) and `bun test`
-runs the suite. Everything else — the build the server needs before it can serve the interface, the
-dev proxy and `ICE_DEV_ORIGIN`, the standalone executable, flags and troubleshooting — is in
+runs the suite. Everything else â€” the build the server needs before it can serve the interface, the
+dev proxy and `ICE_DEV_ORIGIN`, the standalone executable, flags and troubleshooting â€” is in
 [docs/configuration.md](docs/configuration.md#development).
 
 ## How it works
@@ -84,12 +87,12 @@ flowchart LR
 One process, one origin: the same server exposes the data API and the interface,
 so the browser only ever talks to `127.0.0.1`. Server and interface share their
 types (`shared/types.ts`), and the Terna client is tested against an injected
-`fetch` — the suite runs without network access or credentials.
+`fetch` â€” the suite runs without network access or credentials.
 
 ## Data
 
 Four datasets: renewable capacity by source, generation plants, national
-installed capacity and thermoelectric capacity — each by year, geography,
+installed capacity and thermoelectric capacity â€” each by year, geography,
 capacity type (`Lorda`/`Netta`) and, where published, category.
 
 Totals use the **stock of the latest year** with a **single capacity index**:
@@ -125,13 +128,13 @@ Details in [docs/configuration.md](docs/configuration.md).
 ## Status
 
 Early, single-author project: 121 tests across 9 files (`bun test`, plus a build
-in CI) cover the server modules — HTTP routes, storage, settings, sync planning,
-the Terna client against an injected `fetch` — and the interface's pure modules
+in CI) cover the server modules â€” HTTP routes, storage, settings, sync planning,
+the Terna client against an injected `fetch` â€” and the interface's pure modules
 that run without a browser (`src/lib/csv.ts`, `chart-data.ts`, `chart-csv.ts`)
 together with the API client (`src/api/client.ts`). Coverage is not uniform:
-`src/lib/utils.ts` has no test of its own — it sits on a tested path only through
+`src/lib/utils.ts` has no test of its own â€” it sits on a tested path only through
 `src/lib/chart-data.ts`, which imports `formatMw` and `formatGw`, and its
-formatters are never asserted directly — while `src/lib/version.ts` and
+formatters are never asserted directly â€” while `src/lib/version.ts` and
 `src/lib/constants.ts` are imported only by components. What is missing is a
 DOM/component runner: there is no vitest/jsdom setup, so the React components
 themselves are verified by hand. Known limits and upstream data quirks are listed
@@ -147,12 +150,12 @@ build outputs (`dist/`, `static/`, `dist-exe/`); never commit credentials.
 
 ## License
 
-[MIT](LICENSE) © 2026 Tommaso D'Acunzio.
+[MIT](LICENSE) Â© 2026 Tommaso D'Acunzio.
 
 ## Author and contacts
 
-Tommaso D'Acunzio — [GitHub](https://github.com/tomdacu) —
-[LinkedIn](https://www.linkedin.com/in/tommaso-d-acunzio-344876185/) —
+Tommaso D'Acunzio â€” [GitHub](https://github.com/tomdacu) â€”
+[LinkedIn](https://www.linkedin.com/in/tommaso-d-acunzio-344876185/) â€”
 <tommaso@dacunzio.it>
 
 If you use this project, or you are interested in a collaboration, write to me.
