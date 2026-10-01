@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Italian Renewable Capacity Explorer"
+abstract: >-
+  Local-first explorer for the renewable capacity installed in Italy, by region, province
+  and source: solar, wind, hydro, bioenergy and geothermal. Data come from the Terna
+  developer API and are cached locally; the server is Bun/TypeScript and the interface a
+  React dashboard.
+authors:
+  - family-names: "D'Acunzio"
+    given-names: "Tommaso"
+    orcid: "https://orcid.org/0009-0006-9081-1852"
+license: MIT
+repository-code: "https://github.com/tomdacu/italian-renewable-capacity-explorer"
+keywords:
+  - renewable energy
+  - open data
+  - Italy
+  - data visualization
+  - TypeScript
+type: software
