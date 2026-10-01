@@ -152,6 +152,11 @@ build outputs (`dist/`, `static/`, `dist-exe/`); never commit credentials.
 
 [MIT](LICENSE) © 2026 Tommaso D'Acunzio.
 
+## Citation
+
+Citation metadata live in [`CITATION.cff`](CITATION.cff); GitHub renders them in the
+*Cite this repository* box.
+
 ## Author and contacts
 
 Tommaso D'Acunzio — [GitHub](https://github.com/tomdacu) —
